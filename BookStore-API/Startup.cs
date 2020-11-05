@@ -19,6 +19,8 @@ using Microsoft.Extensions.Logging;
 using BookStore_API.Services;
 using BookStore_API.Contracts;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using AutoMapper;
+using BookStore_API.Mappings;
 
 namespace BookStore_API
 {
@@ -59,6 +61,8 @@ namespace BookStore_API
                     .AllowAnyMethod()
                     .AllowAnyHeader());
             });
+
+            services.AddAutoMapper(typeof(Maps));
 
             services.AddSwaggerGen(c =>
             {
