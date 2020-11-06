@@ -76,6 +76,13 @@
             <param name="bookDTO"></param>
             <returns></returns>
         </member>
+        <member name="M:BookStore_API.Controllers.BooksController.Delete(System.Int32)">
+            <summary>
+            Delete a Book
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:BookStore_API.Controllers.HomeController">
             <summary>
             
@@ -134,13 +141,6 @@
             
             </summary>
             <param name="services"></param>
-        </member>
-        <member name="M:BookStore_API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
-            <summary>
-            
-            </summary>
-            <param name="app"></param>
-            <param name="env"></param>
         </member>
     </members>
 </doc>
