@@ -54,7 +54,7 @@ namespace BookStore_API.Controllers
             {
                 var username = userDTO.EmailAddress;
                 var password = userDTO.Password;
-                _logger.LogInfo($"{location}: Registration Attempt from user {username}");
+                _logger.LogInfo($"{location}: Registration Attempt for user {username}");
                 var user = new IdentityUser { Email = username, UserName = username };
                 var result = await _userManager.CreateAsync(user, password);
 
@@ -72,10 +72,8 @@ namespace BookStore_API.Controllers
             }
             catch (Exception e)
             {
-
                 return InternalError($"{location}: {e.Message} - {e.InnerException}");
             }
-
         }
 
         /// <summary>
@@ -127,6 +125,7 @@ namespace BookStore_API.Controllers
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Id)
             };
+
             var roles = await _userManager.GetRolesAsync(user);
             claims.AddRange(roles.Select(r => new Claim(ClaimsIdentity.DefaultRoleClaimType, r)));
             var token = new JwtSecurityToken(_config["Jwt:Isuer"], _config["Jwt:Isuer"], claims, null,

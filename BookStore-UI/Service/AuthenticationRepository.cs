@@ -71,12 +71,13 @@ namespace BookStore_UI.Service
 
         public async Task<bool> Register(RegistrationModel user)
         {
+#pragma warning disable IDE0017 // Simplify object initialization
             var request = new HttpRequestMessage(HttpMethod.Post
-                , Endpoints.RegisterEndpoint)
-            {
-                Content = new StringContent(JsonConvert.SerializeObject(user)
-                , Encoding.UTF8, "application/json")
-            };
+                , Endpoints.RegisterEndpoint);
+#pragma warning restore IDE0017 // Simplify object initialization
+
+            request.Content = new StringContent(JsonConvert.SerializeObject(user)
+                , Encoding.UTF8, "application/json");
 
             var client = _client.CreateClient();
             HttpResponseMessage response = await client.SendAsync(request);
