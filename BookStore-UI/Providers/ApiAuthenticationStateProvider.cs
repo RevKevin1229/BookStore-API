@@ -31,6 +31,7 @@ namespace BookStore_UI.Providers
                 {
                     return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
                 }
+
                 var tokenContent = _tokenHandler.ReadJwtToken(savedToken);
                 var expiry = tokenContent.ValidTo;
                 if (expiry < DateTime.Now)
@@ -38,8 +39,14 @@ namespace BookStore_UI.Providers
                     await _localStorage.RemoveItemAsync("authToken");
                     return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
                 }
+
+                // Get Claims from token
                 var claims = ParseClaims(tokenContent);
+
+                //Build authenticated user object
                 var user = new ClaimsPrincipal(new ClaimsIdentity(claims, "jwt"));
+
+                //return authenticated person
                 return new AuthenticationState(user);
             }
             catch (Exception)
@@ -50,7 +57,7 @@ namespace BookStore_UI.Providers
 
         public async Task LoggedIn()
         {
-            var savedToken = await _localStorage.GetItemAsync<string>("authToke");
+            var savedToken = await _localStorage.GetItemAsync<string>("authToken");
             var tokenContent = _tokenHandler.ReadJwtToken(savedToken);
             var claims = ParseClaims(tokenContent);
             var user = new ClaimsPrincipal(new ClaimsIdentity(claims, "jwt"));

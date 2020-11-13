@@ -3,8 +3,9 @@
 @inject IAuthorRepository _repo
 @inject NavigationManager _navManager
 
-<h3>Create New Author</h3>
-
+<h3 class="card-title">Create New Author</h3>
+<hr />
+<br />
 @if (!isSuccess)
 {
     <ErrorMessage Message="Something went wrong with creating this new author." />

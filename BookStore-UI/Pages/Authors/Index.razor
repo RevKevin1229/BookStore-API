@@ -1,18 +1,22 @@
 ﻿@page "/authors/"
 
-@inject IAuthorRepository _repo
-<h3>Index</h3>
-
+@inject IAuthorRepository _authRepo
+<h3 class="card-title">Index</h3>
+<hr />
+<br />
 @if (Model == null)
 {
     <LoadingMessage Message="Loading Authors..." />
 }
 else
 {
-    <a href="/authors/create" class="btn btn-primary">
-        <span class="oi oi-plus"></span>
-        Create New Author
-    </a>
+    <AuthorizeView Roles="Administrator">
+        <a href="/authors/create" class="btn btn-primary">
+            <span class="oi oi-plus"></span>
+            Create New Author
+        </a>
+    </AuthorizeView>
+
     @if (Model.Count < 1)
     {
         <LoadingMessage Message="There are no authors in the Book Store.
@@ -38,15 +42,14 @@ else
                             <a href="/authors/view/@author.Id" class="btn btn-primary">
                                 <span class="oi oi-book"></span>
                             </a>
-                            <a href="/authors/edit/@author.Id" class="btn btn-warning">
-                                <span class="oi oi-pencil"></span>
-                            </a>
-                            <a href="/authors/delete/@author.Id" class="btn btn-warning">
-                                <span class="oi oi-pencil"></span>
-                            </a>
-                            <a class="btn btn-danger">
-                                <span class="oi oi-delete"></span>
-                            </a>
+                            <AuthorizeView Roles="Administrator">
+                                <a href="/authors/edit/@author.Id" class="btn btn-warning">
+                                    <span class="oi oi-pencil"></span>
+                                </a>
+                                <a href="/authors/delete/@author.Id" class="btn btn-warning">
+                                    <span class="oi oi-pencil"></span>
+                                </a>
+                            </AuthorizeView>
                         </td>
                     </tr>
                 }
@@ -61,6 +64,6 @@ else
 
     protected async override Task OnInitializedAsync()
     {
-        Model = await _repo.Get(Endpoints.AuthorsEndpoint);
+        Model = await _authRepo.Get(Endpoints.AuthorsEndpoint);
     }
 }

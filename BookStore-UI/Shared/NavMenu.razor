@@ -16,49 +16,57 @@
                 </li>
                 <li class="nav-item px-3">
                     <NavLink class="nav-link" href="logout">
-                        <span class="oi oi-arrow-circle-left" aria-hidden="true"></span> Log Out
+                        <span class="oi oi-arrow-circle-left" aria-hidden="true"></span>
+                        Log Out
                     </NavLink>
                 </li>
             </Authorized>
             <NotAuthorized>
                 <li class="nav-item px-3">
                     <NavLink class="nav-link" href="login">
-                        <span class="oi oi-list-rich" aria-hidden="true"></span> Login
+                        <span class="oi oi-list-rich" aria-hidden="true"></span>
+                        Login
                     </NavLink>
                 </li>
                 <li class="nav-item px-3">
                     <NavLink class="nav-link" href="register">
-                        <span class="oi oi-list-rich" aria-hidden="true"></span> Register
+                        <span class="oi oi-list-rich" aria-hidden="true"></span>
+                        Register
                     </NavLink>
                 </li>
             </NotAuthorized>
         </AuthorizeView>
         <li class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
+                <span class="oi oi-home" aria-hidden="true"></span>
+                Home
             </NavLink>
         </li>
         <li class="nav-item px-3">
             <NavLink class="nav-link" href="authors/">
-                <span class="oi oi-plus" aria-hidden="true"></span> Authors
+                <span class="oi oi-plus" aria-hidden="true"></span>
+                Authors
             </NavLink>
         </li>
         <li class="nav-item px-3">
             <NavLink class="nav-link" href="books">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Books
+                <span class="oi oi-list-rich" aria-hidden="true"></span>
+                Books
             </NavLink>
         </li>
         <AuthorizeView Roles="Administrator">
             <li class="nav-item px-3">
                 <NavLink class="nav-link" href="books">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> ADMIN LINK
+                    <span class="oi oi-list-rich" aria-hidden="true"></span>
+                    ADMIN LINK
                 </NavLink>
             </li>
         </AuthorizeView>
         <AuthorizeView Roles="Customer">
             <li class="nav-item px-3">
                 <NavLink class="nav-link" href="books">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> CUSTOMER LINK
+                    <span class="oi oi-list-rich" aria-hidden="true"></span>
+                    CUSTOMER LINK
                 </NavLink>
             </li>
         </AuthorizeView>

@@ -1,9 +1,11 @@
 ﻿@page "/authors/delete/{Id}"
+@attribute [Authorize(Roles = "Administrator")]
 @inject IAuthorRepository _repo
 @inject NavigationManager _navManager
 
-<h3>Are you sure you want to Delete this author?</h3>
-
+<h3 class="card-title">Are you sure you want to Delete this author?</h3>
+<hr />
+<br />
 @if (isFailed)
 {
     <ErrorMessage Message="Something went wrong with deleting this author." />

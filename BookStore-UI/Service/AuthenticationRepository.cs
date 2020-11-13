@@ -34,12 +34,11 @@ namespace BookStore_UI.Service
         public async Task<bool> Login(LoginModel user)
         {
             var request = new HttpRequestMessage(HttpMethod.Post
-                , Endpoints.LoginEndpoint)
-            {
-                Content = new StringContent(JsonConvert.SerializeObject(user)
-                , Encoding.UTF8, "application/json")
-            };
+                , Endpoints.LoginEndpoint);
 
+            request.Content = new StringContent(JsonConvert.SerializeObject(user)
+                 , Encoding.UTF8, "application/json");
+           
             var client = _client.CreateClient();
             HttpResponseMessage response = await client.SendAsync(request);
 
