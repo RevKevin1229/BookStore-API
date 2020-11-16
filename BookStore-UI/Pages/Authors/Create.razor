@@ -1,7 +1,9 @@
 ﻿@page "/authors/create/"
 @attribute [Authorize(Roles = "Administrator")]
+
 @inject IAuthorRepository _repo
 @inject NavigationManager _navManager
+@inject IToastService _toastService
 
 <h3 class="card-title">Create New Author</h3>
 <hr />
@@ -51,6 +53,7 @@
 
         if (isSuccess)
         {
+            _toastService.ShowSuccess("Author was successfully created.");
             BackToList();
         }
     }
