@@ -108,8 +108,8 @@
         file = files.FirstOrDefault();
         if (file != null)
         {
-            var name = file.Name;
-            if (name.Contains("jpg") || name.Contains("png") || name.Contains("jpeg"))
+            var ext = file.Name;
+            if (ext.Contains("jpg") || ext.Contains("png") || ext.Contains("jpeg"))
             {
                 
                 msFile = new MemoryStream();

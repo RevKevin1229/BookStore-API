@@ -22,6 +22,8 @@ namespace BookStore_API.DTOs
 
         public decimal? Price { get; set; }
 
+        public string File { get; set; }
+
         public int? AuthorId { get; set; }
 
         public virtual AuthorDTO Author { get; set; }
@@ -43,6 +45,8 @@ namespace BookStore_API.DTOs
         public string Image { get; set; }
 
         public decimal? Price { get; set; }
+
+        public string File { get; set; }
 
         public int? AuthorId { get; set; }
     }
@@ -66,7 +70,8 @@ namespace BookStore_API.DTOs
 
         public decimal? Price { get; set; }
 
-        public int? AuthorId { get; set; }
+        public string File { get; set; }
 
+        public int? AuthorId { get; set; }
     }
 }

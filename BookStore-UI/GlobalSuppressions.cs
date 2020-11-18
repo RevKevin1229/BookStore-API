@@ -6,3 +6,5 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("CodeQuality", "IDE0052:Remove unread private members", Justification = "<Pending>", Scope = "member", Target = "~F:BookStore_UI.Service.AuthorRepository._client")]
+[assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification = "<Pending>", Scope = "member", Target = "~M:BookStore_UI.Service.AuthenticationRepository.Register(BookStore_UI.Models.RegistrationModel)~System.Threading.Tasks.Task{System.Boolean}")]
+[assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification = "<Pending>", Scope = "member", Target = "~M:BookStore_UI.Service.AuthenticationRepository.Login(BookStore_UI.Models.LoginModel)~System.Threading.Tasks.Task{System.Boolean}")]
